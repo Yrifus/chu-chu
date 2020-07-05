@@ -27,10 +27,17 @@ export default async () => {
 
         }
 
-        if(item.media && ["image", "video"].includes(item.media.medium) && item.media.url) {
-            embed[item.media.medium] = {
+        if(item.media && item.media.medium === "image" && item.media.url) {
+            embed.image = {
                 url: item.media.url
             }
+        }
+
+        if(item.video) {
+            embed.fields = [{
+                name: "YouTube video",
+                value: `[${item.video.title}](${item.video.url})`
+            }]
         }
 
         requestBody.embeds.push(embed);

@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec babel-node ./src/index.js --config ./nodemon.json",
-    "build": "babel ./src/ -d ./public/ && cp -rf ./src/install.js ./public/install.js && cp -rf ./src/uninstall.js ./public/uninstall.js && cp -R -rf ./src/storage/ ./public/",
-    "start": "babel-node ./public/install.js",
-    "stop": "babel-node ./public/uninstall.js"
+    "build": "babel ./src/ -d ./public/ && cp -R -rf ./src/storage/ ./public/",
+    "start": "node ./public/install.js",
+    "stop": "node ./public/uninstall.js"
   },
   "keywords": [
     "RSS",
