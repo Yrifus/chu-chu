@@ -1,6 +1,13 @@
 
 export default (description) => {
-    return limitCharactersTo2000(truncateAfterHashtags(description.split("<br")[0]), "... (truncated)");
+    return limitCharactersTo2000(
+        truncateAfterHashtags(
+            description
+            .split("<img")[0]
+            .replace("(Feed generated with <a href=\"http://fetchrss.com\" target=\"_blank\">FetchRSS</a>)", "")
+            .replace(/<[0-9a-z/\-_=:;\."'\/&`? ]{1,}>/gi, "")
+        ), "... (truncated)"
+    );
 }
 
 function truncateAfterHashtags(description) {

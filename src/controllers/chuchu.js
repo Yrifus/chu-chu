@@ -41,7 +41,11 @@ export default async () => {
         }
 
         requestBody.embeds.push(embed);
-        
+        console.log(
+            JSON.stringify(
+                requestBody, null, 2
+            )
+        )
         await axios.post(config.discordWebhook, requestBody)
     }
 
